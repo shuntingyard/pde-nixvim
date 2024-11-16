@@ -2,7 +2,7 @@
   # TODO
   #       This has been quickly copied from <https://github.com/JMartJonesy/kickstart.nixvim>
   #
-  #       Adopt to reflect your elaborate cmp code !!!
+  #       Adapt to reflect your elaborate cmp code !!!
 
   # Dependencies
   #

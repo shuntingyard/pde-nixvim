@@ -50,7 +50,6 @@
         #docker_compose_language_service.enable = true; # Docker yaml stuff
         #dockerls.enable = true; # dockerfile
         # go omitted for now
-        # hls.enable = true; # Haskell
         #html.enable = true;
         #jsonls.enable = true; # JSON
         lua_ls.enable = true;
@@ -72,11 +71,6 @@
         };
         #pylyzer.enable = true; # TODO decide whether to keep!
         #ruff.enable = true; # lint and format Python
-        rust_analyzer = {
-          enable = true;
-          installCargo = false;
-          installRustc = false;
-        };
         #sqls.enable = true; # https://github.com/sqls-server/sqls
       };
     };
