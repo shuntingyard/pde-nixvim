@@ -2,14 +2,15 @@
   flake.nixosModules.default =
     { config
     , lib
-    , pkgs
+    , outputs
+    , system
     , ...
     }:
       with lib; let
         cfg = config.pde.nixos;
 
-        # grab the base config (nice flake-parts shorthand)
-        pde = pkgs.default;
+        # grab the base config
+        pde = outputs.packages.${system}.default;
       in
       {
         options = {
