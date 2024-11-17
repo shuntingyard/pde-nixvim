@@ -10,7 +10,7 @@
         cfg = config.pde.nixos;
 
         # grab the base config
-        pde = self.${pkgs.system}.packages.default;
+        pde = self.packages.${pkgs.system}.default;
       in
       {
         options = {
