@@ -23,12 +23,12 @@
           };
         };
 
-        # test if you can extend
-        pde-extended = pde.extend {
-          colorscheme = "";
-        };
         config = mkIf cfg.enable {
-          environment.systemPackages = [ pde-extended ];
+          environment.systemPackages = [
+            # test if you can extend
+            pde.extend
+            { colorscheme = "${cfg.colorscheme}"; }
+          ];
         };
       };
 }
