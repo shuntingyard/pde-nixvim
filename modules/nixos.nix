@@ -2,7 +2,6 @@
   flake.nixosModules.default =
     { config
     , lib
-    , outputs
     , system
     , ...
     }:
@@ -10,7 +9,7 @@
         cfg = config.pde.nixos;
 
         # grab the base config
-        pde = outputs.packages.${system}.default;
+        pde = flake.packages.${system}.default;
       in
       {
         options = {
