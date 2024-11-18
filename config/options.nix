@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ lib
+, pkgs
+, ...
+}: {
   # basic layer from my old PDE
 
   globals = {
@@ -18,7 +21,7 @@
   extraPlugins = [
     pkgs.vimPlugins.sonokai
   ];
-  colorscheme = "sonokai";
+  colorscheme = lib.mkDefault "sonokai";
 
   opts = {
     updatetime = 250; # Faster completion
