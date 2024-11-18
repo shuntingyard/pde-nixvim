@@ -1,5 +1,5 @@
 {
   imports = [
-    ./nixos.nix
+    #    ./nixos.nix
   ];
 }

@@ -28,7 +28,13 @@
           environment.systemPackages = [
             # test if you can extend
             pde.extend
-            { colorscheme = "${cfg.colorscheme}"; }
+            {
+              # colorscheme = "${cfg.colorscheme}";
+              plugins.treesitter.grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                haskell
+                rust
+              ];
+            }
           ];
         };
       };
