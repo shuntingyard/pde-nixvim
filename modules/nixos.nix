@@ -10,7 +10,8 @@
         cfg = config.pde.nixos;
 
         # grab the base config
-        pde = self.packages.${pkgs.system}.default;
+        # pde = self.packages.${pkgs.system}.default;
+        pde = self.packages."aarch64-linux".default;
       in
       {
         options = {
