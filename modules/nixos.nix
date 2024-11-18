@@ -11,7 +11,6 @@
 
         # grab the base config
         pde = self.packages.${pkgs.system}.default;
-        # pde = self.packages."aarch64-linux".default;
       in
       {
         options = {
@@ -26,18 +25,16 @@
         };
 
         config = mkIf cfg.enable {
-          environment.systemPackages = [
-            # test if you can extend
-            # pde.extend
-            # {
-            #   # colorscheme = "${cfg.colorscheme}";
-            #   plugins.treesitter.grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-            #     haskell
-            #     rust
-            #   ];
-            # }
-            pde
-          ];
+          environment.systemPackages =
+            let
+              # test if you can extend
+              pde-extended =
+                pde.extend
+                  {
+                    colorscheme = "${cfg.colorscheme}";
+                  };
+            in
+            [ pde-extended ];
         };
       };
 }
