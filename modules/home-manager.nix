@@ -1,30 +1,30 @@
 {
-  flake.nixosModules.default =
+  flake.homeManagerModules.default =
     { config
     , lib
     , pkgs
     , ...
     }:
       with lib; let
-        cfg = config.pde.nixos;
+        cfg = config.pde.hm;
 
         # grab the base config
         pde = (getSystem "${pkgs.system}") .packages.default;
       in
       {
         options = {
-          pde.nixos = {
-            enable = mkEnableOption "Enables pde-nixvim system-wide";
+          pde.hm = {
+            enable = mkEnableOption "Enables pde-nixvim for home";
             colorscheme = lib.mkOption {
               type = lib.types.str;
               default = "darkblue";
-              description = lib.mdDoc "Set nvim system colorscheme";
+              description = lib.mdDoc "Set nvim home colorscheme";
             };
           };
         };
 
         config = mkIf cfg.enable {
-          environment.systemPackages =
+          home.packages =
             let
               # test if you can extend
               pde-extended =
