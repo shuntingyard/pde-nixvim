@@ -3,14 +3,13 @@
     { config
     , lib
     , pkgs
-    , self
     , ...
     }:
       with lib; let
         cfg = config.pde.nixos;
 
         # grab the base config
-        pde = self.packages.${pkgs.system}.default;
+        pde = config.packages.${pkgs.system}.default;
       in
       {
         options = {
