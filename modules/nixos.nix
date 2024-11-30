@@ -7,6 +7,9 @@
   }:
     with lib; let
       cfg = config.pde.nixos;
+
+      # grab the base config
+      pde = flake.packages.default;
     in {
       options = {
         pde.nixos = {
@@ -29,9 +32,6 @@
 
       config = mkIf cfg.enable {
         environment.systemPackages = let
-          # grab the base config
-          pde = flake.packages.default;
-
           # test if you can extend
           pde-extended =
             pde.extend
