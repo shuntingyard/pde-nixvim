@@ -7,9 +7,6 @@
     }:
       with lib; let
         cfg = config.pde.hm;
-
-        # grab the base config
-        pde = config.packages.${pkgs.system}.default;
       in
       {
         options = {
@@ -26,6 +23,9 @@
         config = mkIf cfg.enable {
           home.packages =
             let
+              # grab the base config
+              pde = config.packages.${pkgs.system}.default;
+
               # test if you can extend
               pde-extended =
                 pde.extend

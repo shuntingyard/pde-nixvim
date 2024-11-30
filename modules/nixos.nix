@@ -7,14 +7,19 @@
     }:
       with lib; let
         cfg = config.pde.nixos;
-
-        # grab the base config
-        pde = config.packages.${pkgs.system}.default;
       in
       {
         options = {
           pde.nixos = {
             enable = mkEnableOption "Enables pde-nixvim system-wide";
+            # can we get the system here?
+            /*
+          system = lib.mkOption {
+            type = lib.types.str;
+            default = "x86_64-linux";
+            description = lib.mdDoc "System for derivation";
+          };
+            */
             colorscheme = lib.mkOption {
               type = lib.types.str;
               default = "darkblue";
@@ -24,6 +29,9 @@
         };
 
         config = mkIf cfg.enable {
+          # grab the base config
+          pde = config.packages.${pkgs.system}.default;
+
           environment.systemPackages =
             let
               # test if you can extend
