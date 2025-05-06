@@ -56,7 +56,11 @@
         marksman.enable = true; # markdown
         # powershell omitted for now
         # pyright omitted!
-        rust_analyzer.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustc = false;
+        };
         # sqlls abandoned in favor of sqls
         # TODO should we give `semgrep` another go? (shehackspurple etc)
         #yamlls.enable = true; # YAML
