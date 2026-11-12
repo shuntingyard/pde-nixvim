@@ -2,7 +2,7 @@
   description = "Basic nixvim config for personalized development environments";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # Just for formatting
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
@@ -52,6 +52,19 @@
           formatter = pkgs.nixpkgs-fmt;
         };
 
-      imports = [ ./modules ];
+      # Global flake outputs
+      flake = {
+        homeManagerModules = {
+          default = {
+            imports = [
+              inputs.nixvim.homeModules.nixvim
+              ./modules/home_manager.nix
+            ];
+          };
+        };
+        nixosModules = {
+          ohbrother = ./modules/nixos.nix;
+        };
+      };
     };
 }

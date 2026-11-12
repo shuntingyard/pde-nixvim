@@ -2,6 +2,12 @@
 
 Neovim Personalized Development Environment using nixvim
 
+## Conventions
+
+- `personalized.nvim.hm` for nixvim's homeModules (for home-manager)
+- `personalized.nvim.nixos` for nixvim's nixosModules
+- `personalized.nvim.darwin` for nixvim's nixDarwinModules
+
 ## TODO List
 
 - [x] test integration of this standalone nixvim config with your main flake.
